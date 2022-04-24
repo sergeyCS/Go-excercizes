@@ -1,8 +1,8 @@
 package book
 
 import (
-	"ca-library-app/internal/adapters"
-	"ca-library-app/internal/book"
+	"ca-library-app/internal/adapters/api"
+	"ca-library-app/internal/domain/book"
 
 	//"context"
 	"net/http"
@@ -23,7 +23,7 @@ func (h *handler) Register(router *httprouter.Router) {
 	router.GET(booksURL, h.GetAllBooks)
 }
 
-func NewHandler(service book.Service) adapters.Handler {
+func NewHandler(service book.Service) api.Handler {
 	return &handler{bookService: service}
 }
 
