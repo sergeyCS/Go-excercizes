@@ -1,18 +1,20 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net"
 	"net/http"
 	"restapi-lesson/internal/user"
+	"restapi-lesson/pkg/logging"
 	"time"
 
 	"github.com/julienschmidt/httprouter"
 )
 
 func main() {
-	fmt.Println()
+	logger := logging.GetLogger()
+	logger.Info()
+
 	router := httprouter.New()
 
 	handler := user.NewHandler()
