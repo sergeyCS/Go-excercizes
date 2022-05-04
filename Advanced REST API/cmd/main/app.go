@@ -9,7 +9,7 @@ import (
 	"path"
 	"path/filepath"
 	"restapi-lesson/internal/config"
-	"restapi-lesson/internal/user"
+	"restapi-lesson/internal/notification"
 	"restapi-lesson/pkg/logging"
 	"time"
 
@@ -23,8 +23,8 @@ func main() {
 
 	cfg := config.GetConfig()
 
-	logger.Info("register user handler")
-	handler := user.NewHandler(logger)
+	logger.Info("register notification handler")
+	handler := notification.NewHandler(logger)
 	handler.Register(router)
 
 	start(router, cfg)
